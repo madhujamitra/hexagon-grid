@@ -1,0 +1,131 @@
+.beehive-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.beehive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.row {
+    display: flex;
+    gap: 0.625rem;
+}
+
+.row:not(:first-child) {
+    transform: translateY(-2.3rem);
+}
+
+.row.shifted {
+    margin-left: 7.1875rem;
+    transform: translateY(-1.21875rem);
+}
+
+.row:last-child {
+    transform: translateY(-3.48125rem);
+}
+
+.hexagon {
+    width: 6.25rem;
+    height: 7.1875rem;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.hexagon:hover {
+    animation: hoverEffect 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes hoverEffect {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 48rem) {
+    .hexagon {
+        width: 3.75rem;
+        height: 4.40625rem;
+    }
+    
+    .row:not(:first-child) {
+        transform: translateY(-1.53125rem);
+    }
+
+    .row.shifted {
+        margin-left: 4.3125rem;
+        transform: translateY(-0.8125rem);
+    }
+
+    .row:last-child {
+        transform: translateY(-2.21875rem);
+    }
+}
+
+@media (max-width: 30rem) {
+    .hexagon {
+        width: 2.5rem;
+        height: 2.96875rem;
+    }
+    
+    .row:not(:first-child) {
+        transform: translateY(-0.359375rem);
+    }
+
+    .row.shifted {
+        margin-left: 3.4375rem;
+        transform: translateY(-0.296875rem);
+    }
+
+    .row:last-child {
+        transform: translateY(-0.59375rem);
+    }
+}
+
+@media (max-width: 21.25rem) {
+    .hexagon {
+        width: 1.875rem;
+        height: 2.34375rem;
+    }
+    
+    .row:not(:first-child) {
+        transform: translateY(-0.359375rem);
+    }
+
+    .row.shifted {
+        margin-left: 2.5rem;
+        transform: translateY(-0.296875rem);
+    }
+
+    .row:last-child {
+        transform: translateY(-0.59375rem);
+    }
+}
